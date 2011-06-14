@@ -1,0 +1,23 @@
+<% @trains.each do |train| %>
+  <div class="result">
+    <p>
+      <%= train.children[0].to_s.strip.gsub!(train.children[0].to_s.match(/^[^\(]*(\(.*\))[^\)]*/).captures[0],"") %>: 
+      <%= train.children[4] %>
+      <i><%= train.children[5] %></i>
+      <br />
+      <% if train.children[2].text.to_s != train.children[3].text.to_s %>
+        &nbsp;Supposed to be at <%= train.children[2]%>
+        <br />
+        &nbsp;Expected at <%= train.children[3] %>
+      <% else %>
+        &nbsp;Expected at <%= train.children[3] %>
+      <% end %>
+    </p>
+  </div>
+<% end %>
+<div class="theform">
+  <form name="stationform" method="get" action="/train">
+  <input type="text" id="stationname" name="station" />
+  <input type="submit" value="Grab trains" />
+  </form>
+</div>

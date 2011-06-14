@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta property="og:title" content="YOURAPPNAME"/>
+    <meta property="og:url" content="YOURAPPURL" />
+    <meta property="og:admins" content="YOURFACEBOOKUSERID" />
+    <meta property="og:app_id" content="THEFACEBOOKAPPID" />
+    <meta property="og:type" content="website" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+    <title>MeDzart</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/smoothness/jquery-ui.css" />
+    <style type="text/css">
+      body {font-family: "lucida grande", tahoma, verdana, arial, sans-serif; }
+      .result {
+        width:80%;
+        -moz-border-radius:4px;
+        -webkit-border-radius:4px;
+        border-radius:4px;
+        margin:auto;
+        padding:1px;
+        margin-bottom:5px;
+        font-size:0.8em;
+        border:1px solid #333;
+      }
+      .theform {width:80%;margin:auto;text-align:center;}
+      .title {text-align:center;color:#3b5998}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#stationname").autocomplete({
+          source: ["Malahide", "Portmarnock", "Clongriffin", "Howth", "Sutton", "Bayside", "Howth Junction", "Kilbarrack", "Raheny", "Harmonstown", "Killester", "Clontarf Road", "Connolly", "Tara Street", "Pearse", "Grand Canal Dock", "Lansdowne Road", "Sandymount", "Sydney Parade", "Booterstown", "Blackrock", "Seapoint", "Salthill", "Dun Laoghaire", "Sandycove", "Glenageary", "Dalkey", "Killiney", "Shankill", "Bray", "Greystones"]
+        });
+      });
+    </script>
+    <h2 class="title">Where's me dzart at?</h2>
+    <% if @station %>
+      <h3 class="title">
+        Realtime results for <%=CGI::unescape @station.capitalize %>
+      </h3>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
