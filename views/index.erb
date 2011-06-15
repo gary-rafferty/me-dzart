@@ -1,6 +1,10 @@
+<% if session['fb_auth'] %>
 <div class="theform">
-<form name="stationform" method="get" action="/train">
-<input type="text" id="stationname" name="station" />
-<input type="submit" value="Grab trains" />
-</form>
+  <form name="stationform" method="get" action="/train">
+  <input type="text" id="stationname" name="station" />
+  <input type="submit" value="Grab trains" />
+  </form>
 </div>
+<% else %>
+  <script type="text/javascript">top.location.href="/auth/facebook"</script>
+<% end %>
